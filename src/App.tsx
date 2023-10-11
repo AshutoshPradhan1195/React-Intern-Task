@@ -7,7 +7,7 @@ type customerDataType = {
   phone:string
   address:string
   gender:string
-  age:string
+  age:number
 }[]
 
 const customerData:customerDataType = [
@@ -17,7 +17,7 @@ const customerData:customerDataType = [
     phone:"9839209988",
     address:"91773 Miller Shoal\nDiaztown, FL 38841",
     gender:"male",
-    age:"43",
+    age:43,
   },
   {
     name:"Gary Moore",
@@ -25,7 +25,7 @@ const customerData:customerDataType = [
     phone:"9820193884",
     address:"6450 John Lodge\nTerriton, KY 95945",
     gender:"male",
-    age:"71",
+    age:71,
 
   },
   {
@@ -34,7 +34,7 @@ const customerData:customerDataType = [
     phone:"9809098877",
     address:"27265 Murray Island\nKevinfort, PA 63231",
     gender:"male",
-    age:"44",
+    age:44,
 
   },
   {
@@ -43,7 +43,7 @@ const customerData:customerDataType = [
     phone:"98765434455",
     address:"USNS Knight\nFPO AA 76532",
     gender:"male",
-    age:"38",
+    age:38,
 
   },
   {
@@ -52,7 +52,7 @@ const customerData:customerDataType = [
     phone:"9808976545",
     address:"170 Jackson Loaf\nKristenland, AS 48876",
     gender:"male",
-    age:"58",
+    age:58,
 
   },
   {
@@ -61,7 +61,7 @@ const customerData:customerDataType = [
     phone:"9090887799",
     address:"14354 Baker Harbor Apt. 017\nEricville, HI 11192",
     gender:"female",
-    age:"33",
+    age:33,
   },
   {
     name:"David Davis",
@@ -69,7 +69,7 @@ const customerData:customerDataType = [
     phone:"9076467788",
     address:"021 Katherine Mall\nJameston, DC 24685",
     gender:"male",
-    age:"59",
+    age:59,
 
   },
   {
@@ -78,7 +78,7 @@ const customerData:customerDataType = [
     phone:"9645789933",
     address:"14657 Scott Loop Apt. 735\nPort Ashley, NH 34470",
     gender:"male",
-    age:"58",
+    age:58,
 
   },
   {
@@ -87,7 +87,7 @@ const customerData:customerDataType = [
     phone:"9844412233",
     address:"6644 Mitchell Burg\nVictorhaven, KS 66356",
     gender:"male",
-    age:"61",
+    age:61,
   },
   {
     name:"Darrell Dillon",
@@ -95,7 +95,7 @@ const customerData:customerDataType = [
     phone:"9083445566",
     address:"PSC 7267, Box 9911\nAPO AE 49343",
     gender:"male",
-    age:"50",
+    age:50,
   }]
 
 

@@ -8,22 +8,22 @@ type myProps = {
         phone:string
         address:string
         gender:string
-        age:string
+        age:number
     }[]
 }
 
   export const Task3 = (props:myProps
     ) => {
 
-        const [popup, setPopup] = useState({name:"",age:"",gender:"",phone:"",email:"",address:""})
+        const [popupData, setPopupData] = useState({name:"",age:0,gender:"",phone:"",email:"",address:""})
         const [displayPopup, setDisplayPopup] = useState("none")
 
         return(
             <div style={{display:'flex'}}>
-                <table className='studentTable'>
+                <table className='customersTable'>
                     <thead>
                         <tr>
-                            <th>Users</th>
+                            <th>Customers</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +33,7 @@ type myProps = {
                             <tr key={data.email} >
                                 <td style={{display:"flex", justifyContent:"space-between", padding:"0px", alignItems:"center"}}>
                                     <div onClick={() => { 
-                                    setPopup({name:data.name,age:data.age,gender:data.gender,phone:data.phone,email:data.email,address:data.address})
+                                    setPopupData({name:data.name,age:data.age,gender:data.gender,phone:data.phone,email:data.email,address:data.address})
                                     setDisplayPopup("block")
                                 }} style={{width:"100%", height:"100%", padding:"15px"}}> 
                                         {data.name} 
@@ -53,12 +53,17 @@ type myProps = {
 
                 <div className='popup' style={{display:displayPopup}}>
                     <div>
-                        <div>Name: {popup.name}</div>
-                        <div>Age: {popup.age}</div>
-                        <div>Gender: {popup.gender}</div>
-                        <div>Phone No: {popup.phone}</div>
-                        <div>Email: {popup.email}</div>
-                        <div>Address: {popup.address}</div>
+
+                    <h2>
+                        Customer Details
+                    </h2>
+
+                    <input type='text' value={popupData.name} name='name' placeholder='Full Name' readOnly/> 
+                        <input type='number' value={popupData.age} name='age' min={1} placeholder='Age' readOnly/> 
+                        <input type='text' value={popupData.gender} name='gender' placeholder='Gender' readOnly/> 
+                        <input type='text' value={popupData.phone} name='phone' placeholder='Phone Number' readOnly/>
+                        <input type='text' value={popupData.email} name='email' placeholder='Email' readOnly/>
+                        <input type='text' value={popupData.address} name='address' placeholder='Address' readOnly/>
                         <button onClick={() => {setDisplayPopup("none")
                         }} style={{alignSelf:"center"}}>Okay</button>
                     </div>
