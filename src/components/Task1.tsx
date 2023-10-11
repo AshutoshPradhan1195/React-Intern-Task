@@ -1,9 +1,8 @@
-const Task1 = () =>{
+export const Task1 = () =>{
     return(
-        <div>
-            <h1>Hello, React !</h1>
+        <div style={{marginLeft:"3%"}}>
+            <h1>Hello, React!</h1>
         </div>        
     )
 }
 
-export default Task1;
