@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FollowBtn } from './FollowBtn';
 
 type myProps = {
     customerData:{
@@ -11,7 +12,7 @@ type myProps = {
     }[]
 }
 
-  export const Task2 = (props:myProps
+  export const Task3 = (props:myProps
     ) => {
 
         const [popup, setPopup] = useState({name:"",age:"",gender:"",phone:"",email:"",address:""})
@@ -30,14 +31,15 @@ type myProps = {
                         {props.customerData.map((data) => (
                             
                             <tr key={data.email} >
-                                <td style={{display:"flex", justifyContent:"space-between", padding:"0px"}}>
+                                <td style={{display:"flex", justifyContent:"space-between", padding:"0px", alignItems:"center"}}>
                                     <div onClick={() => { 
                                     setPopup({name:data.name,age:data.age,gender:data.gender,phone:data.phone,email:data.email,address:data.address})
                                     setDisplayPopup("block")
                                 }} style={{width:"100%", height:"100%", padding:"15px"}}> 
                                         {data.name} 
                                     </div>
-                                                                
+
+                                    <FollowBtn styles={{padding:"5px", marginRight:"10px"}}/>                            
                                 </td>   
                                 
                             </tr> 
