@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { FollowBtn } from './FollowBtn';
-
 
 type myProps = {
     customerData:{
@@ -16,7 +14,6 @@ type myProps = {
   export const Task2 = (props:myProps
     ) => {
 
-        const [follow, setFollow] = useState("follow")
         const [popup, setPopup] = useState({name:"",age:"",gender:"",phone:"",email:"",address:""})
         const [displayPopup, setDisplayPopup] = useState("none")
 
@@ -40,9 +37,7 @@ type myProps = {
                                 }} style={{width:"100%", height:"100%", padding:"15px"}}> 
                                         {data.name} 
                                     </div>
-                                
-                                    <FollowBtn/>
-                                
+                                                                
                                 </td>   
                                 
                             </tr> 
