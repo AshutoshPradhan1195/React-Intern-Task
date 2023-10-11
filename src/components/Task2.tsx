@@ -49,7 +49,7 @@ type myProps = {
 
                 </table>
 
-                <div className='popup' id='popupWindow' style={{display:displayPopup}}>
+                <div className='popup' style={{display:displayPopup}}>
                     <div>
                         <div>Name: {popup.name}</div>
                         <div>Age: {popup.age}</div>
