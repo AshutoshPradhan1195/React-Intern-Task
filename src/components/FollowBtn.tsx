@@ -20,9 +20,11 @@ export const FollowBtn = (Props:props) => {
 
     return(
         <div>
+            
             <button style={Props.styles} onClick={() => {
                 followChange()
             }}>{follow}</button>
+
         </div>
     )
 }
