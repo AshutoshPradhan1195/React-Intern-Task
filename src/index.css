@@ -14,7 +14,7 @@ code {
     monospace;
 }
   
-.studentTable{
+.customersTable{
     text-align: left;
     padding: 50px;
     width: 30%;
@@ -22,17 +22,17 @@ code {
 
 }
   
-.studentTable th, td{
+.customersTable th, td{
     box-sizing: border-box;
     padding: 15px;
 }
   
-.studentTable tr{
+.customersTable tr{
     cursor: pointer;
     background-color: rgb(113, 113, 113) !important;
 }
   
-.studentTable  tr:hover{
+.customersTable  tr:hover{
     background-color: rgb(183, 183, 183) !important;
 
 }
