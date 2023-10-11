@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FollowBtn } from './FollowBtn';
 
+
 type myProps = {
     customerData:{
         name:string
@@ -8,14 +9,20 @@ type myProps = {
         phone:string
         address:string
         gender:string
-        age:string
+        age:number
     }[]
 }
 
   export const Task3 = (props:myProps
     ) => {
 
-        const [popup, setPopup] = useState({name:"",age:"",gender:"",phone:"",email:"",address:""})
+        const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            setPopup({...popup, [event.target.name]:event.target.value});
+        };
+        
+        
+        const [custData, setCustData] = useState(props.customerData)
+        const [popup, setPopup] = useState({name:"",age:0,gender:"",phone:"",email:"",address:""})
         const [displayPopup, setDisplayPopup] = useState("none")
 
         return(
@@ -23,12 +30,15 @@ type myProps = {
                 <table className='studentTable'>
                     <thead>
                         <tr>
-                            <th>Users</th>
+                            <th>
+                                Customers
+                                <button>+</button>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         
-                        {props.customerData.map((data) => (
+                        {custData.map((data) => (
                             
                             <tr key={data.email} >
                                 <td style={{display:"flex", justifyContent:"space-between", padding:"0px", alignItems:"center"}}>
@@ -39,7 +49,8 @@ type myProps = {
                                         {data.name} 
                                     </div>
 
-                                    <FollowBtn styles={{padding:"5px", marginRight:"10px"}}/>                            
+                                    <FollowBtn styles={{padding:"5px", marginRight:"10px"}}/>
+
                                 </td>   
                                 
                             </tr> 
@@ -51,20 +62,41 @@ type myProps = {
 
                 </table>
 
+
+                
+
                 <div className='popup' style={{display:displayPopup}}>
+                    <h2>Customer Details</h2>
                     <div>
-                        <div>Name: {popup.name}</div>
-                        <div>Age: {popup.age}</div>
-                        <div>Gender: {popup.gender}</div>
-                        <div>Phone No: {popup.phone}</div>
-                        <div>Email: {popup.email}</div>
-                        <div>Address: {popup.address}</div>
-                        <button onClick={() => {setDisplayPopup("none")
+                            <input type='text' value={popup.name} name='name' onChange={handleChange}/> 
+                            <input type='number' value={popup.age} name='age' onChange={handleChange} min={1}/> 
+                            <input type='text' value={popup.gender} name='gender' onChange={handleChange}/> 
+                            <input type='text' value={popup.phone} name='phone'onChange={handleChange}/>
+                            <input type='text' value={popup.email} name='email'/>
+                            <input type='text' value={popup.address} name='address' onChange={handleChange}/>
+
+ 
+
+                        <button onClick={() =>{
+                            setDisplayPopup("none")
                         }} style={{alignSelf:"center"}}>Okay</button>
+
+                        <button onClick={() =>{
+                            const newData = custData.map((data) => {
+                                if (data.email === popup.email){
+                                    return popup
+                                }
+                                else{
+                                    return data
+                                }
+
+                            })
+                            setCustData(newData)
+                        }}></button>
                     </div>
                    
                 </div>
-                
+
                 
             </div>
         )
