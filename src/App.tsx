@@ -3,6 +3,8 @@ import {Task} from './components/Task';
 import { customerDataType } from './components/assets/types';
 
 
+
+
 const customerData:customerDataType[] = [
   {
     name:"Joseph Rice",
@@ -89,7 +91,8 @@ const customerData:customerDataType[] = [
     address:"PSC 7267, Box 9911\nAPO AE 49343",
     gender:"male",
     age:50,
-  }]
+  }
+]
 
 
 

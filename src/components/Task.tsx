@@ -10,11 +10,8 @@ import CustomerTable from './CustomerTable';
         return(
             <div style={{display:'flex',width:"100vw", height:"100vh",justifyContent:"center", alignItems:"center"}}>
 
-                <div >
-                    <h1>Customers</h1>
-                    <CustomerTable customerData={props.customerData}/>
-                </div>
                 
+                <CustomerTable customerData={props.customerData}/>                
                 
             </div>
         )
