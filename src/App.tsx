@@ -1,7 +1,6 @@
 import React from 'react';
 import {Task2} from './components/Task2';
 import { customerDataType } from './components/assets/types';
-import CustomerTable from './components/CustomerTable';
 
 
 const customerData:customerDataType[] = [
@@ -97,7 +96,6 @@ function App() {
   return (
     <div >
       <Task2 customerData={customerData}/>
-      
     </div>
   );
 }
