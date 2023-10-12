@@ -13,68 +13,27 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-  
-.customersTable{
-    text-align: left;
-    padding: 50px;
-    width: 30%;
-    color: black;
 
-}
-  
-.customersTable th, td{
-    box-sizing: border-box;
-    padding: 15px;
-}
-  
-.customersTable tr{
-    cursor: pointer;
-    background-color: rgb(113, 113, 113) !important;
-}
-  
-.customersTable  tr:hover{
-    background-color: rgb(183, 183, 183) !important;
-
-}
-
-button:hover{
-    cursor: pointer;
-}
-  
 .popup{
-    color: rgb(0, 0, 0);
-    background-color: rgb(113, 113, 113);
-    margin-left: 10%;
-    margin-top: 8%;
-    box-sizing: border-box;
-    padding: 0px 20px 20px 20px;
-    height: 30%;
-    width: 30%;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 }
 
-.popup input {
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    margin-top: 10px;
-}
-  
 .popup div{
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-
+  display: flex;
+  flex-direction: column;
 }
   
-.popup button{
-    width: 30%;
-    height: 30px;
-    border: none;
-    border-radius: 10px;
-    margin-top: 10px;
+.popup label{
+  margin-top: 10px;
 }
-
-  
-  
+.popup input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 90%;
+  background-color: rgb(239, 239, 239);
+}
   
   

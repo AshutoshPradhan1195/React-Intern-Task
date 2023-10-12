@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Button, Space } from 'antd';
 
 type props = {
     styles:React.CSSProperties
@@ -6,24 +7,22 @@ type props = {
 
 export const FollowBtn = (Props:props) => {
 
-    const[follow,setFollow] = useState("Follow")
+    const[following,setFollowing] = useState(false)
 
     function followChange(){
 
-        if(follow === "Follow"){
-            setFollow("Following")
-        }
-        else(
-            setFollow("Follow")
-        )
+        setFollowing(!following)
     }
 
     return(
         <div>
-            
-            <button style={Props.styles} onClick={() => {
-                followChange()
-            }}>{follow}</button>
+            <Space wrap>
+                <Button type="primary" style={Props.styles} onClick={() => {
+                    followChange()
+                }}>
+                    { following? "following" : "follow" }
+                </Button>
+            </Space>
 
         </div>
     )
