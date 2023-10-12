@@ -6,3 +6,7 @@ export type customerDataType = {
     gender:string
     age:number
   }
+
+export  type myProps = {
+    customerData:customerDataType[]
+}

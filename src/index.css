@@ -14,52 +14,6 @@ code {
     monospace;
 }
   
-.customersTable{
-    text-align: left;
-    padding: 50px;
-    width: 30%;
-    color: black;
 
-}
-  
-.customersTable th, td{
-    box-sizing: border-box;
-    padding: 15px;
-}
-  
-.customersTable tr{
-    cursor: pointer;
-    background-color: rgb(113, 113, 113) !important;
-}
-  
-.customersTable  tr:hover{
-    background-color: rgb(183, 183, 183) !important;
-
-}
-  
-.popup{
-    color: rgb(0, 0, 0);
-    background-color: rgb(113, 113, 113);
-    margin-left: 10%;
-    margin-top: 8%;
-    height: 30%;
-    width: 30%;
-}
-  
-.popup div{
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-
-}
-  
-.popup button{
-    width: 30%;
-    height: 30px;
-    border: none;
-    border-radius: 10px;
-}
-  
-  
   
   
