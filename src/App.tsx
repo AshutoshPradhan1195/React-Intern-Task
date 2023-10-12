@@ -1,5 +1,5 @@
 import React from 'react';
-import {Task4} from './components/Task4';
+import {Task} from './components/Task';
 
 type customerDataType = {
   name:string
@@ -103,7 +103,7 @@ const customerData:customerDataType = [
 function App() {
   return (
     <div >
-      <Task4 customerData={customerData}/>
+      <Task customerData={customerData}/>
 
     </div>
   );

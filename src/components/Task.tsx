@@ -13,7 +13,7 @@ type myProps = {
     }[]
 }
 
-  export const Task4 = (props:myProps
+  export const Task = (props:myProps
     ) => {
 
         //handle onChange for input fields
