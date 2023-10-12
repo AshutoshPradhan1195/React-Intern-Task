@@ -66,7 +66,7 @@ const columns: ColumnsType<customerDataType> = [
     title:"",
     render: () => (
       <FollowBtn styles={{width:"100px"}} />
-    ),
+    ), 
     width:"150px"
   }
 ];
