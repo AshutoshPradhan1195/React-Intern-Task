@@ -40,10 +40,18 @@ type myProps = {
             setCustData(newData)
         }
 
-        function showPopup(){
-            setDisplayPopup("block")
-            setDisplayPopupEdit("block")
-            setDisplayPopupCreate("none")
+        function showPopup(type:string){
+            if(type === "Create"){
+                setDisplayPopup("block")
+                setDisplayPopupEdit("none")
+                setDisplayPopupCreate("block")
+            }
+            else{
+                setDisplayPopup("block")
+                setDisplayPopupEdit("block")
+                setDisplayPopupCreate("none")
+            }
+
         }
 
         return(
@@ -58,7 +66,7 @@ type myProps = {
                             <th onClick={() => {
                                     setPopupData({name:"",age:Number(""),gender:"",phone:"",email:"",address:""})
                                     setReadOnly(false)
-                                    showPopup()
+                                    showPopup("Create")
                                 }} className='addCustomers'>
                                 Customers+
 
@@ -78,7 +86,7 @@ type myProps = {
                                     <div onClick={() => { 
                                         setPopupData({name:data.name,age:data.age,gender:data.gender,phone:data.phone,email:data.email,address:data.address})
                                         setReadOnly(true)
-                                        showPopup()
+                                        showPopup("")
                                     }} style={{width:"100%", height:"100%", padding:"15px"}}> 
                                         {data.name} 
                                     </div>
