@@ -10,10 +10,11 @@ import { FollowBtn } from './FollowBtn';
 
 const columns: ColumnsType<customerDataType> = [
   
+  //added onCell onclickfor each column except button in order to not show popup when pressing clicking on follow button
   {
     title: 'Name',
     dataIndex: 'name',
-    onCell : (record,rowIndex) => {
+    onCell : (record) => {
       return{
         onClick : () => {
           render( 
@@ -26,7 +27,7 @@ const columns: ColumnsType<customerDataType> = [
   {
     title: 'Age',
     dataIndex: 'age',
-    onCell : (record,rowIndex) => {
+    onCell : (record) => {
       return{
         onClick : () => {
           render( 
@@ -39,7 +40,7 @@ const columns: ColumnsType<customerDataType> = [
   {
     title: 'Gender',
     dataIndex: 'gender',
-    onCell : (record,rowIndex) => {
+    onCell : (record) => {
       return{
         onClick : () => {
           render( 
@@ -52,7 +53,7 @@ const columns: ColumnsType<customerDataType> = [
   {
     title: 'Address',
     dataIndex: 'address',
-    onCell : (record,rowIndex) => {
+    onCell : (record) => {
       return{
         onClick : () => {
           render( 
