@@ -1,16 +1,9 @@
 import React from 'react';
 import {Task} from './components/Task';
+import { customerDataType } from './components/assets/types';
 
-type customerDataType = {
-  name:string
-  email:string
-  phone:string
-  address:string
-  gender:string
-  age:number
-}[]
 
-const customerData:customerDataType = [
+const customerData:customerDataType[] = [
   {
     name:"Joseph Rice",
     email:"josephrice131@slingacademy.com",
@@ -43,7 +36,7 @@ const customerData:customerDataType = [
     phone:"98765434455",
     address:"USNS Knight\nFPO AA 76532",
     gender:"male",
-    age:48,
+    age:38,
 
   },
   {
@@ -104,7 +97,6 @@ function App() {
   return (
     <div >
       <Task customerData={customerData}/>
-
     </div>
   );
 }
