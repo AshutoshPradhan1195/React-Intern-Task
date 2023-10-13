@@ -8,11 +8,8 @@ import CustomerTable from './CustomerTable';
 
 
         return(
-            <div style={{display:'flex',width:"100vw", height:"100vh",justifyContent:"center", alignItems:"center"}}>
-
-                
-                <CustomerTable customerData={props.customerData}/>                
-                
+            <div style={{display:'flex',width:"100%",justifyContent:"center", alignItems:"center"}}>
+                <CustomerTable customerData={props.customerData}/>                      
             </div>
         )
     }

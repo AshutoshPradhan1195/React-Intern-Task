@@ -88,19 +88,30 @@ const CustomerTable = (props:myProps) => {
   const handleUpdateOrAdd = () => {
     
     if(!isUpdate){
-      customerData.push(popupData)
-    }
-      const newData = customerData.map((data) => {
-      if(data.email === popupData.email){
-        return data
+      if(popupData.email !== ""){
+        customerData.push(popupData)
+        const newData = customerData.map((data) => {
+          return data
+        })
+        setCustomerData(newData)
       }
-      else{
-        return data
-      }})
-      console.log(newData)
+      
+  
+    }
+    else{
+      const newData = customerData.map((data) => {
+        if(data.email === popupData.email){
+          return popupData
+        }
+        else{
+          return data
+        }
+      })
       setCustomerData(newData)
 
-    setIsModalOpen(false);
+    }
+  
+  setIsModalOpen(false);
 
   };
 
@@ -137,21 +148,32 @@ const CustomerTable = (props:myProps) => {
   return(
   <>
     <div >
-      <h1 onClick={addCustomerPopup}>Customers</h1>
+      <h1 className='addCustomer' onClick={addCustomerPopup}>Customers+</h1>
       <ConfigProvider theme={{components: {Table: 
         {
           cellPaddingBlockSM:10,
-          cellPaddingInlineSM:10,
-          borderRadius:10,
-          footerBg:"red"
+          cellPaddingInlineSM:15,      
+          headerBorderRadius:0,
+          rowHoverBg:"#efefef",
         }}
       }}>
         
-      <Table columns={columns} dataSource={customerData} rowKey={(record) => record.email} size="small" style={{backgroundColor:"white"}}/>
+      <Table columns={columns} dataSource={customerData} rowKey={(record) => record.email} size="small" pagination={{
+        position:["bottomCenter"]
+      }}/>
 
       </ConfigProvider>
 
-      <Modal title= {isUpdate? "Update Customer Details" : "Add New Customer"} open={isModalOpen} onOk={handleUpdateOrAdd} okText={isUpdate? "Update" : "Add"} onCancel={handleCancel}  width={"35%"}>
+      <Modal title= {isUpdate? "Update Customer Details" : "Add New Customer"} open={isModalOpen} onCancel={handleCancel} footer={[
+        <Space wrap>
+          <Button onClick={isUpdate? handleDelete : handleCancel} >
+              {isUpdate? "Delete" : "Cancel"}
+          </Button>
+          <Button type="primary" onClick={handleUpdateOrAdd}>
+            {isUpdate? "Update" : "Add"}
+          </Button>
+        </Space>
+      ]} width={"35%"}>
 
         <div className='popup'>
           <div>
@@ -186,13 +208,7 @@ const CustomerTable = (props:myProps) => {
 
         </div>
         
-        <Space wrap style={{display:"flex", justifyContent:"end", alignItems:"end",}}>
-                <Button onClick={() => {
-                    handleDelete()
-                }} style={{marginTop:"10px", textAlign:"right", display:isUpdate? "block" : "none"}}>
-                    Delete
-                </Button>
-            </Space>
+        
       </Modal>
 
     </div>
