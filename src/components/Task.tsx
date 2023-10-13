@@ -8,7 +8,7 @@ import CustomerTable from './CustomerTable';
         return(
             <div style={{display:'flex', height:"100vh", width:"100vw", justifyContent:"center", alignItems:"center"}}>
                 <div>
-                    <h1 >Customers</h1>
+                    <h1>Customers</h1>
                     <CustomerTable customerData={props.customerData} />
 
                 </div>
