@@ -83,7 +83,7 @@ const CustomerTable = (props:myProps) => (
       }}
     }}>
       
-      <Table columns={columns} dataSource={props.customerData} rowKey={(record) => record.email} pagination={false} size="middle"/>
+      <Table columns={columns} dataSource={props.customerData}  rowKey={(record) => record.email} pagination={false} size="middle"/>
 
     </ConfigProvider>
 
