@@ -2,7 +2,7 @@ import { myProps } from './assets/types';
 import CustomerTable from './CustomerTable';
 
 
-  export const Task2 = (props:myProps
+  export const Task = (props:myProps
     ) => {
 
         return(

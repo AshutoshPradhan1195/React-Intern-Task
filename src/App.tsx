@@ -1,5 +1,5 @@
 import React from 'react';
-import {Task2} from './components/Task2';
+import {Task} from './components/Task';
 import { customerDataType } from './components/assets/types';
 
 
@@ -95,7 +95,7 @@ const customerData:customerDataType[] = [
 function App() {
   return (
     <div >
-      <Task2 customerData={customerData}/>
+      <Task customerData={customerData}/>
     </div>
   );
 }
