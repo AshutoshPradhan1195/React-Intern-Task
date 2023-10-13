@@ -140,14 +140,14 @@ const CustomerTable = (props:myProps) => {
       <h1 onClick={addCustomerPopup}>Customers</h1>
       <ConfigProvider theme={{components: {Table: 
         {
-          cellPaddingBlockMD:10,
-          cellPaddingInlineMD:30,
+          cellPaddingBlockSM:10,
+          cellPaddingInlineSM:10,
           borderRadius:10,
           footerBg:"red"
         }}
       }}>
         
-      <Table columns={columns} dataSource={customerData} rowKey={(record) => record.email} size="middle" style={{backgroundColor:"white"}}/>
+      <Table columns={columns} dataSource={customerData} rowKey={(record) => record.email} size="small" style={{backgroundColor:"white"}}/>
 
       </ConfigProvider>
 
