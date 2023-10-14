@@ -1,32 +1,82 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ConfigProvider, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { customerDataType, myProps } from './assets/types';
-import PopupModal from './PopupModal';
-import { render } from '@testing-library/react';
+import { Modal } from 'antd';
 
+const CustomerTable:React.FC<myProps> = ({customerData}) => {
 
-const columns: ColumnsType<customerDataType> = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-  },
-  {
-    title: 'Gender',
-    dataIndex: 'gender',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-  },
-];
+  const openModal = (data:customerDataType) => {
+    setPopupData(data)
+    setIsModalOpen(true)
+  }
 
+  const columns: ColumnsType<customerDataType> = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      onCell: (record) => {
+        return{
+          onClick: () => {
+            openModal(record)
+          }
+        }
+      }
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      onCell: (record) => {
+        return{
+          onClick: () => {
+            openModal(record)
+          }
+        }
+      }
+    },
+    {
+      title: 'Gender',
+      dataIndex: 'gender',
+      onCell: (record) => {
+        return{
+          onClick: () => {
+            openModal(record)
+          }
+        }
+      }
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      onCell: (record) => {
+        return{
+          onClick: () => {
+            openModal(record)
+          }
+        }
+      }
+    },
+  ];
+  
 
-const CustomerTable = (props:myProps) => (
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [popupData, setPopupData] = useState({
+    name:"",
+    email:"",
+    phone:"",
+    address:"",
+    gender:"",
+    age:0
+  })
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  
+  return(
   <>
     <ConfigProvider theme={{components: {Table: 
       {
@@ -34,22 +84,23 @@ const CustomerTable = (props:myProps) => (
         cellPaddingInlineMD:30,
         borderRadius:0
       }}
-    }}>
+    }}> 
       
-      <Table columns={columns}  dataSource={props.customerData} rowKey={(record) => record.email} pagination={false} size="middle" onRow={(record, rowIndex) => {
-        return{
-            onClick : () => {
-                render(
-                    <PopupModal name={record.name} age={record.age} address={record.address} email={record.email} phone={record.phone} gender={record.gender}/>
-                )
-            }
-        }
-      }}/>
+      <Table columns={columns}  dataSource={customerData} rowKey={(record) => record.email} pagination={false} size="middle"/>
 
     </ConfigProvider>
 
-  </>
 
-);
+    <Modal title="Customer Details" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <p>Name : {popupData.name}</p>
+        <p>Age : {popupData.age}</p>
+        <p>Gender: {popupData.gender}</p>
+        <p>Email: {popupData.email}</p>
+        <p>Phone: {popupData.phone}</p>
+        <p>Address: {popupData.address}</p>
+      </Modal>
+
+  </>
+)};
 
 export default CustomerTable;
