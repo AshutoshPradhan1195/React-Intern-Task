@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ConfigProvider, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { customerDataType, myProps } from './assets/types';
+import { customerDataType, myProps } from '../types/types';
 import { FollowBtn } from './FollowBtn';
 import { Modal } from 'antd';
 import { Button, Space } from 'antd';
@@ -11,7 +11,7 @@ const CustomerTable = (props:myProps) => {
 
   const [customerData,setCustomerData] = useState(props.customerData)
 
-  const onCellClick = (record:customerDataType) =>{
+  const openModal = (record:customerDataType) =>{
     setPopupData(record)
     setIsModalOpen(true)
     setIsUpdate(true)
@@ -22,10 +22,10 @@ const CustomerTable = (props:myProps) => {
     {
       title: 'Name',
       dataIndex: 'name',
-      onCell : (record) => {
+      onCell: (record) => {
         return{
-          onClick : () => {
-            onCellClick(record)
+          onClick: () => {
+            openModal(record)
           }
         }
       }
@@ -33,10 +33,10 @@ const CustomerTable = (props:myProps) => {
     {
       title: 'Age',
       dataIndex: 'age',
-      onCell : (record) => {
+      onCell: (record) => {
         return{
-          onClick : () => {
-            onCellClick(record)
+          onClick: () => {
+            openModal(record)
           }
         }
       }
@@ -44,10 +44,10 @@ const CustomerTable = (props:myProps) => {
     {
       title: 'Gender',
       dataIndex: 'gender',
-      onCell : (record) => {
+      onCell: (record) => {
         return{
-          onClick : () => {
-            onCellClick(record)
+          onClick: () => {
+            openModal(record)
           }
         }
       }
@@ -55,11 +55,10 @@ const CustomerTable = (props:myProps) => {
     {
       title: 'Address',
       dataIndex: 'address',
-      onCell : (record) => {
-        
+      onCell: (record) => {
         return{
-          onClick : () => {
-            onCellClick(record)
+          onClick: () => {
+            openModal(record)
           }
         }
       }

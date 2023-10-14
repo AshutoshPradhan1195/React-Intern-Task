@@ -1,6 +1,6 @@
 import React from 'react';
-import {Task} from './components/Task';
-import { customerDataType } from './components/assets/types';
+import {Task} from './components/pages/Task';
+import { customerDataType } from './components/types/types';
 
 
 

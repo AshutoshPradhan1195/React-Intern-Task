@@ -1,6 +1,5 @@
-
-import { myProps } from './assets/types';
-import CustomerTable from './CustomerTable';
+import { myProps } from '../types/types';
+import CustomerTable from '../assets/CustomerTable';
 
 
   export const Task = (props:myProps
