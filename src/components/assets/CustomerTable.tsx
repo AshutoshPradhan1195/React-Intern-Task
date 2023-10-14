@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ConfigProvider, Modal, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { customerDataType, myProps } from './types/types';
+import { customerDataType, myProps } from '../types/types';
 import { FollowBtn } from './FollowBtn';
 
 const CustomerTable = (props:myProps) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Task} from './pages/Task';
-import { customerDataType } from './components/assets/types/types';
+import { customerDataType } from './components/types/types';
 
 
 const customerData:customerDataType[] = [

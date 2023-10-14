@@ -1,5 +1,5 @@
 
-import { myProps } from '../components/assets/types/types';
+import { myProps } from '../components/types/types';
 import CustomerTable from '../components/assets/CustomerTable';
 
 
