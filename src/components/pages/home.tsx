@@ -1,12 +1,20 @@
+import { Counter } from "../assets/Counter";
 import { NavigationBar } from "../assets/NavigationBar";
 
 
-const Home = () => {
 
+const Home = () => {
+    
     return(
         <>
             <NavigationBar/>
-            <h1 style={{marginLeft:"5%"}}>Hello React</h1>
+
+            <div style={{marginLeft:"5%"}}>
+                <h1>Hello React</h1>
+                <Counter/>
+            </div>
+
+
         </>
     )
 }
