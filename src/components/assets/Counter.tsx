@@ -13,7 +13,7 @@ export const Counter = () => {
     },[])
     return(
         <div>
-            {counter}
+            You have been on the home page for {counter} seconds
         </div>
     )
 }

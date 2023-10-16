@@ -1,7 +1,7 @@
 body {
     margin: 0;
-    background-color: black;
-    color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    color: #000000;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
@@ -53,15 +53,48 @@ code {
   width: 100px;
 }
 
+.navElement{
+  box-sizing:"border-box";
+  display: flex;
+  height: 60px;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+  justify-content: space-between;
+
+}
+
 .navElement h1{
   box-sizing: border-box;
   padding: 15px;
 }
 
+.themeBtn {
+  border:none;
+  margin-top: 15px;
+}
+
+
+.btnThemeIcon{
+  width: 20px;
+  height: 20px;
+}
+
+.btnThemeIcon:hover{
+  color: rgb(35, 83, 255);
+  cursor:pointer;
+}
+
+.themeBtn span{
+  padding: 5px;
+
+}
+
+
 
 .navElement h1:hover{
   background-color: rgb(255, 255, 255);
-  color: black;
+  color: rgb(35, 83, 255);
   cursor: pointer;
 }
 
