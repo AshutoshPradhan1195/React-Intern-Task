@@ -28,6 +28,7 @@ const EditCustomer = () => {
 
     }
     
+    //getting customer data by email
     const[editCustomer,setEditCustomer] = useState(customerData.filter((data) => data.email === email)[0])
 
     console.log(email)
