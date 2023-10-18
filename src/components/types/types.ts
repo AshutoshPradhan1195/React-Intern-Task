@@ -10,3 +10,17 @@ export type customerDataType = {
 export  type myProps = {
     customerData:customerDataType[]
 }
+
+export type formType = {
+  email:string | null
+  isUpdate:boolean
+}
+
+export type FieldType = {
+  name: string;
+  age: number;
+  gender: string;
+  phone:string;
+  email:string;
+  address:string;
+};
