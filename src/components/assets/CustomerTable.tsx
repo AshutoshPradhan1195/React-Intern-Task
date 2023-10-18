@@ -14,7 +14,7 @@ const CustomerTable = (props:myProps) => {
     {
       title: 'Name',
       dataIndex: 'name',
-      onCell: (record) => {
+      onCell: (record:customerDataType) => {
         return{
           onClick: () => {
             navigate(`/customerProfiles/edit?email=${record.email}`)
@@ -25,7 +25,7 @@ const CustomerTable = (props:myProps) => {
     {
       title: 'Age',
       dataIndex: 'age',
-      onCell: (record) => {
+      onCell: (record:customerDataType) => {
         return{
           onClick: () => {
             navigate(`/customerProfiles/edit?email=${record.email}`)
@@ -36,7 +36,7 @@ const CustomerTable = (props:myProps) => {
     {
       title: 'Gender',
       dataIndex: 'gender',
-      onCell: (record) => {
+      onCell: (record:customerDataType) => {
         return{
           onClick: () => {
             navigate(`/customerProfiles/edit?email=${record.email}`)
@@ -47,7 +47,7 @@ const CustomerTable = (props:myProps) => {
     {
       title: 'Address',
       dataIndex: 'address',
-      onCell: (record) => {
+      onCell: (record:customerDataType) => {
         return{
           onClick: () => {
             navigate(`/customerProfiles/edit?email=${record.email}`)
