@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 export const CustomerForm:React.FC<formType>= ({email,isUpdate}) => {
     
     //getting customer data by email
-    const[editCustomer,setEditCustomer] = useState(customerData.filter((data) => data.email === email)[0])
+    const[editCustomer] = useState(customerData.filter((data) => data.email === email)[0])
 
     const navigate = useNavigate()
   

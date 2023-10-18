@@ -1,8 +1,4 @@
-import { useState } from "react"
-import { customerData, deleteCustomerData, editCustomerData } from "./customerProfiles"
 import { NavigationBar } from "../assets/NavigationBar"
-import { useNavigate } from "react-router-dom"
-import { Button, Space } from 'antd';
 import { CustomerForm } from "../assets/CustomerForm";
 
 
