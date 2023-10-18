@@ -10,3 +10,10 @@ export type customerDataType = {
 export  type myProps = {
     customerData:customerDataType[]
 }
+
+export type popupModalType = {
+  data:customerDataType
+  isModalOpen:boolean
+  isUpdate:boolean
+  handleCancel:any
+}

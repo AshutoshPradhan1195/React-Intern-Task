@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ConfigProvider, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { customerDataType, myProps } from '../types/types';
 import { FollowBtn } from './FollowBtn';
 import { Modal } from 'antd';
 import { Button, Space } from 'antd';
+import { PopupModal } from './PopupModal';
+import { ppid } from 'process';
+import { customerData } from '../pages/Task';
 
 
-const CustomerTable = (props:myProps) => {
+const CustomerTable : React.FC = () => {
 
-  const [customerData,setCustomerData] = useState(props.customerData)
+
+  const [tableData,setTableData] = useState(customerData)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isUpdate,setIsUpdate] = useState(true)
+
+
+  const handleCancel = () => {
+    setIsModalOpen(false)
+  }
 
   const openModal = (record:customerDataType) =>{
     setPopupData(record)
@@ -22,7 +33,7 @@ const CustomerTable = (props:myProps) => {
     {
       title: 'Name',
       dataIndex: 'name',
-      onCell: (record) => {
+      onCell: (record:customerDataType) => {
         return{
           onClick: () => {
             openModal(record)
@@ -33,7 +44,7 @@ const CustomerTable = (props:myProps) => {
     {
       title: 'Age',
       dataIndex: 'age',
-      onCell: (record) => {
+      onCell: (record:customerDataType) => {
         return{
           onClick: () => {
             openModal(record)
@@ -44,7 +55,7 @@ const CustomerTable = (props:myProps) => {
     {
       title: 'Gender',
       dataIndex: 'gender',
-      onCell: (record) => {
+      onCell: (record:customerDataType) => {
         return{
           onClick: () => {
             openModal(record)
@@ -55,7 +66,7 @@ const CustomerTable = (props:myProps) => {
     {
       title: 'Address',
       dataIndex: 'address',
-      onCell: (record) => {
+      onCell: (record:customerDataType) => {
         return{
           onClick: () => {
             openModal(record)
@@ -72,8 +83,6 @@ const CustomerTable = (props:myProps) => {
     }
   ];
   
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const [popupData, setPopupData] = useState({
     name:"",
     age:0,
@@ -84,35 +93,11 @@ const CustomerTable = (props:myProps) => {
 
   })
 
-  const handleUpdateOrAdd = () => {
-    
-    if(!isUpdate){
-      if(popupData.email !== ""){
-        customerData.push(popupData)
-        const newData = customerData.map((data) => {
-          return data
-        })
-        setCustomerData(newData)
-      }
-      
+  useEffect(() => {
+    setTableData(customerData)    
+  },[customerData,isModalOpen])
   
-    }
-    else{
-      const newData = customerData.map((data) => {
-        if(data.email === popupData.email){
-          return popupData
-        }
-        else{
-          return data
-        }
-      })
-      setCustomerData(newData)
 
-    }
-  
-  setIsModalOpen(false);
-
-  };
 
   const addCustomerPopup = () => {
     setIsUpdate(false)
@@ -127,23 +112,6 @@ const CustomerTable = (props:myProps) => {
     setIsModalOpen(true)
   }
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPopupData({...popupData, [event.target.name] : event.target.value})
-  }
-
-  const handleCancel = () => {
-    setIsModalOpen(false)
-  }
-
-  const handleDelete = () => {
-
-      const newData = customerData.filter((data) => data.email !== popupData.email)
-      setCustomerData(newData)
-      setIsModalOpen(false);
-  };
-
-  const [isUpdate,setIsUpdate] = useState(true)
-
   return(
   <>
     <div >
@@ -157,59 +125,13 @@ const CustomerTable = (props:myProps) => {
         }}
       }}>
         
-      <Table columns={columns} dataSource={customerData} rowKey={(record) => record.email} size="small" pagination={{
+      <Table columns={columns} dataSource={tableData} rowKey={(record) => record.email} size="small" pagination={{
         position:["bottomCenter"]
       }}/>
 
       </ConfigProvider>
 
-      <Modal title= {isUpdate? "Update Customer Details" : "Add New Customer"} open={isModalOpen} onCancel={handleCancel} footer={[
-        <Space wrap>
-          <Button onClick={isUpdate? handleDelete : handleCancel} >
-              {isUpdate? "Delete" : "Cancel"}
-          </Button>
-          <Button type="primary" onClick={handleUpdateOrAdd}>
-            {isUpdate? "Update" : "Add"}
-          </Button>
-        </Space>
-      ]} width={"35%"}>
-
-        <div className='popup'>
-          <div>
-            <label htmlFor="name">Name</label>
-            <input type='text' value={popupData.name} id='name' name='name' placeholder='Full Name' onChange={handleChange}/> 
-          </div>
-
-          <div>
-            <label htmlFor="age">Age</label>
-            <input type='number' value={popupData.age} id='age' name='age' min={1} placeholder='Age'  onChange={handleChange}/> 
-          </div>
-
-          <div>
-            <label htmlFor="gender">Gender</label>
-            <input type='text' value={popupData.gender} id='gender' name='gender' placeholder='Gender'  onChange={handleChange}/> 
-          </div>
-          
-          <div>
-            <label htmlFor="phone">Phone No</label>
-            <input type='text' value={popupData.phone} id='phone' name='phone' placeholder='Phone Number'  onChange={handleChange}/>
-          </div>
-          
-          <div>
-            <label htmlFor="email">Email</label>
-            <input type='text' value={popupData.email} id='email' name='email' placeholder='Email' readOnly={isUpdate? true : false} onChange={handleChange}/>
-          </div>
-          
-          <div>
-            <label htmlFor="address">Address</label>
-            <input type='text' value={popupData.address} id='address' name='address' placeholder='Address' onChange={handleChange}/>
-          </div>
-
-        </div>
-        
-        
-      </Modal>
-
+      <PopupModal data={popupData} isModalOpen={isModalOpen} isUpdate={isUpdate} handleCancel={handleCancel} />
     </div>
 
   </>
