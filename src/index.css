@@ -62,15 +62,21 @@ code {
 .ant-table-container {
   @apply bg-[rgb(218,218,218)] rounded-none;
 }
-.ant-pagination-prev {
-  @apply bg-[white];
+
+.ant-pagination-prev{
+  background-color: white;
+
 }
-.ant-pagination-item {
-  @apply bg-[white] ml-2.5;
+.ant-pagination-item{
+  background-color: white !important;
+  margin-left: 10px !important;
 }
-.ant-pagination-next {
-  @apply bg-[white] ml-2.5;
+
+.ant-pagination-next{
+  background-color: white;
+  margin-left: 10px !important;
 }
+
 .custForm {
   @apply bg-[rgb(218,218,218)] box-border p-5;
 }
