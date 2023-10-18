@@ -24,3 +24,8 @@ export type FieldType = {
   email:string;
   address:string;
 };
+
+export type bearStorageType = {
+  lightTheme:boolean,
+  setTheme: (state:boolean) => void
+}

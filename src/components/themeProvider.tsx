@@ -1,18 +1,8 @@
-import { createContext, useState } from "react"
-
-export const ThemeContext = createContext<{
-    lightTheme:boolean
-    setLightTheme: React.Dispatch<React.SetStateAction<boolean>>
-} | null>(null);
+import { create } from "zustand";
+import { bearStorageType } from "./types/types";
 
 
-export const ThemeProvider = (children: any) => {
-
-    const[lightTheme, setLightTheme] = useState(false)
-
-    return(
-        <ThemeContext.Provider value={{lightTheme, setLightTheme}}>
-            {children}
-        </ThemeContext.Provider>
-    )
-}
+export const useBearStore = create<bearStorageType>((set) => ({
+    lightTheme:false,
+    setTheme: () => set((state) => ({lightTheme: !state.lightTheme})),
+}))

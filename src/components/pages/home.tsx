@@ -1,14 +1,9 @@
-import { useContext } from "react";
 import { Counter } from "../assets/Counter";
 import { NavigationBar } from "../assets/NavigationBar";
-import { ThemeContext } from "../themeProvider";
-
 
 
 const Home = () => {
-
-
-
+    
     return(
         <div style={{}}>
             <NavigationBar/>
