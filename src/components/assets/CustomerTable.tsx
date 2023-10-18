@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { ConfigProvider, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { customerDataType, myProps } from '../types/types';
+import { customerDataType, } from '../types/types';
 import { FollowBtn } from './FollowBtn';
-import { Modal } from 'antd';
-import { Button, Space } from 'antd';
 import { PopupModal } from './PopupModal';
-import { ppid } from 'process';
 import { customerData } from '../pages/Task';
 
 
