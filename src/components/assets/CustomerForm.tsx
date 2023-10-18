@@ -11,7 +11,7 @@ export const CustomerForm:React.FC<formType>= ({email,isUpdate}) => {
 
     const navigate = useNavigate()
   
-    const [form] = Form.useForm()
+    const [form] = Form.useForm<FieldType>()
     
     const onFinish = () => {
   
@@ -63,35 +63,35 @@ export const CustomerForm:React.FC<formType>= ({email,isUpdate}) => {
             style={{ display:"flex", flexDirection:"column", color:"white"}}
             onFinish={onFinish}
           >
-            <Form.Item<FieldType>
+            <Form.Item
               label="Full Name"
               name="name"
             >
               <Input placeholder='Full Name'/>
             </Form.Item>
   
-            <Form.Item<FieldType>
+            <Form.Item
               label="Age"
               name="age"
             >
               <Input placeholder='Age'/>
             </Form.Item>
   
-            <Form.Item<FieldType>
+            <Form.Item
               label="Gender"
               name="gender"
             >
               <Input placeholder='Gender' />
             </Form.Item>
   
-            <Form.Item<FieldType>
+            <Form.Item
               label="Phone No"
               name="phone"
             >
               <Input placeholder='Phone Number'/>
             </Form.Item>
   
-            <Form.Item<FieldType>
+            <Form.Item
               label="Email"
               name="email"
               rules={[{required:true, message:"Email Address is required"}]}
@@ -99,7 +99,7 @@ export const CustomerForm:React.FC<formType>= ({email,isUpdate}) => {
               <Input placeholder='Email Address' readOnly={isUpdate}/>
             </Form.Item>
   
-            <Form.Item<FieldType>
+            <Form.Item
               label="Address"
               name="address"
             >
