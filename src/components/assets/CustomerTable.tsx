@@ -5,7 +5,7 @@ import { FollowBtn } from './FollowBtn';
 import { useNavigate } from 'react-router-dom';
 
 
-const CustomerTable = (props:myProps) => {
+const CustomerTable : React.FC<myProps> = ({customerData}) => {
 
   const navigate = useNavigate()
   const columns: ColumnsType<customerDataType> = [
@@ -78,7 +78,7 @@ const CustomerTable = (props:myProps) => {
         }}
       }}>
         
-      <Table columns={columns} dataSource={props.customerData} rowKey={(record) => record.email} size="small" pagination={{
+      <Table columns={columns} dataSource={customerData} rowKey={(record) => record.email} size="small" pagination={{
         position:["bottomCenter"]
       }}/>
 
