@@ -60,7 +60,6 @@ export const CustomerForm:React.FC<formType>= ({email,isUpdate}) => {
             wrapperCol={{ span: 23 }}
             layout='vertical'
             className="custForm"
-            style={{ display:"flex", flexDirection:"column", color:"white"}}
             onFinish={onFinish}
           >
             <Form.Item

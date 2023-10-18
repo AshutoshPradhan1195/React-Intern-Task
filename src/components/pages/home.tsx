@@ -8,7 +8,7 @@ const Home = () => {
         <div style={{}}>
             <NavigationBar/>
 
-            <div style={{marginLeft:"5%"}}>
+            <div className="pl-[6%] pr-[5%] py-0">
                 <h2>Hello React</h2>
                 <Counter/>
             </div>

@@ -6,7 +6,7 @@ const AddCustomer = () => {
     return(
         <div>
             <NavigationBar/>
-            <div style={{padding:"0px 5% 0px 6%"}}>
+            <div className="pl-[6%] pr-[5%] py-0">
                 <CustomerForm email={null} isUpdate={false}/>
             </div>
         </div>

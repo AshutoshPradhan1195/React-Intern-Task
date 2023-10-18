@@ -58,7 +58,7 @@ const CustomerTable : React.FC<myProps> = ({customerData}) => {
     {
       title:"",
       render: () => (
-        <FollowBtn styles={{width:"100px"}} />
+        <FollowBtn />
       ), 
       width:"150px"
     },
